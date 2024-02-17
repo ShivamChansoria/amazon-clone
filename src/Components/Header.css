@@ -1,0 +1,150 @@
+header{
+    background-color:#0F1111; 
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    height: 60px;
+}
+
+.amazon-logo img{
+    height: 38px!important;
+    margin: 15px 20px;
+}
+
+.search-bar{
+   display: flex;
+   width: 50vw;
+   justify-content: left;
+   margin-right: 20px;
+}
+
+.input-bar {
+    min-width: 135px;
+    width: 100%;
+    margin-top: 10px;
+    height: 35px;
+}
+.search-icon {
+    height: 36px !important; 
+    margin-top: 11px;
+    padding: 8px;
+    background-color:#f3a847 ;
+    border-style:none ;
+    color: black;
+}
+
+.nav-items{
+    display: flex;
+      margin-top: 9px;  
+      text-align: left;
+      font-size: 15px;
+      
+}
+
+.nav-items p {
+    text-decoration: none !important;
+
+}
+
+.sign-in{
+    margin-top: -3px;
+    min-width: 77px;
+    color: white;
+}
+.sign-in p{
+    font-size: 15px;
+}
+.sign-out{
+    margin-top: -4px;
+    min-width: 242px;
+    color: white;
+}
+.sign-out p{
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+/* .dropdown-btn{
+    display: none;
+} */
+
+p h2{
+    text-decoration: none;
+
+}
+
+.sign-in, .orders, .prime{
+    padding-right: 30px;
+}
+
+.cart{
+    background-color: #0F1111;
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.cart p{
+    padding: 10px;
+    font-weight: 700;
+    font-size:medium ;
+}
+
+
+@media screen and (max-width: 900px){
+    .nav-items{
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    header{
+        height: 350px;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .search-bar{
+        margin-top: -30px;
+    }
+
+    .nav-items{
+        flex-direction: column;
+        text-align: center;
+    }
+    .sign-in{
+        margin-bottom: 16px;
+    }
+    .sign-out{
+        margin-bottom: 16px;
+    }
+    .orders{
+        margin-bottom: 16px;        
+    }
+    .prime{
+        margin-bottom: 16px;
+    }
+    .cart{
+        position: relative;
+        left: -8px;
+        margin-bottom: 16px;
+    }
+    .home-image{
+        height: 130px;
+    }
+
+
+
+    /* .dropdown-btn{
+        display: block;
+        background-color: #0F1111;
+        border: none;
+        color: white;
+        cursor: pointer;
+    } */
+
+    
+}
