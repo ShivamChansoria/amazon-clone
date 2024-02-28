@@ -1,0 +1,41 @@
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.payment-success{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+     height: 125px;
+     width: 250px;
+}
+
+
+.success-icon svg{
+    height: 170px;
+    width: 426px;
+}
+
+.payment-success p{
+    font-size: medium;
+    color: #050518;
+    text-decoration: underline;
+}
+
+.home-btn{
+    height: 100px;
+    width: 250px;
+    border-color: #a88734 #9c7e41;
+    height: 38px;
+    background-color: #f0c14b;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 20px;
+}

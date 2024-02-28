@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import "./Login.css";
-import { Link } from 'react-router-dom/cjs/react-router-dom';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { auth } from '../firebase';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { AlternateEmail, Height } from '@material-ui/icons';
 import { useStataValue } from '../Providers/StateProvider';
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
@@ -15,7 +16,7 @@ const Login = () => {
     const [{basket}, dispatch] = useStataValue();
 
     
-    const history= useHistory();
+    const history= useNavigate();
     
     const logIn = (e) =>{
         e.preventDefault();
@@ -29,36 +30,23 @@ const Login = () => {
               user: user
             })
             console.log(user.email);
-            alert("User is logged in with: "+ user.email+ "!!!");
-            history.push('/');
+            toast.success("User is logged in with: "+ user.email+ "!!!");
+            history('/');
 
          // ...
           })
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
+            toast.error( errorMessage);
           });
 
     };
-    const signup = (e) =>{
-        e.preventDefault();
+  
+    const handleSignUp = () => {
+      history.push("/signup");
+    };
 
-         const auth = getAuth();
-       createUserWithEmailAndPassword(auth, email, password)
-         .then((userCredential) => {
-    // Signed up 
-         const user = userCredential.user;
-         history.push('/');
-    // ...
-          })
-     .catch((error) => {
-       const errorCode = error.code;
-       const errorMessage = error.message;
-       console.log(errorCode, errorMessage);
-    // ..
-  });
-
-    }
 
     return (
         <div className='login-container'>
@@ -88,7 +76,7 @@ const Login = () => {
                 <h4>
                     Please read our privacy and security policy before signing in.
                 </h4>
-                <button className='sign-up-btn' onClick={signup}>
+                <button className='sign-up-btn' onClick={handleSignUp}>
                     Create your Amazon Account 
                 </button>
               </form>

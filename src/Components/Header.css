@@ -57,7 +57,7 @@ header{
 }
 .sign-out{
     margin-top: -4px;
-    min-width: 242px;
+    min-width: fit-content;
     color: white;
 }
 .sign-out p{

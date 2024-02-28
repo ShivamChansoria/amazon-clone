@@ -3,19 +3,19 @@ import { ShoppingBasket } from "@material-ui/icons";
 import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
 import SearchIcon from "@material-ui/icons/Search";
 import "./Header.css";
-import { StateContext, useStataValue } from "../Providers/StateProvider";
+import {  useStataValue } from "../Providers/StateProvider";
 import { Link } from "react-router-dom";
 import { auth } from "../firebase";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { getBasketTotal } from "../Providers/reducer";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   let counter = 0;
-  const history = useHistory();
+  const history = useNavigate();
   const [{ basket, user }, dispatch] = useStataValue();
 
   const handleLogin = () => {
     if (user) auth.signOut();
+    history('/login');
   };
 
   const handleLogout = () => {
@@ -28,9 +28,7 @@ const Header = () => {
   };
 
   const handleCart = () => {
-    const basketTotal = getBasketTotal(basket);
-    console.log(basketTotal);
-    history.push("/cart");
+    history("/cart");
   };
 
   return (

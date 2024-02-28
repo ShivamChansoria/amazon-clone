@@ -1,12 +1,15 @@
 import React from 'react';
 import "./Product.css";
 import { useStataValue } from '../Providers/StateProvider';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Product = ({id, title, image, price, rating}) => {
 
-        const [{basket}, dispatch] = useStataValue();
+        const [{basket, user}, dispatch] = useStataValue();
 
         const addToBasket = () => {
+            if(user){
             dispatch( {
                 type: "ADD_TO_BASKET",
                 item:{
@@ -17,6 +20,14 @@ const Product = ({id, title, image, price, rating}) => {
                     rating: rating
                 }
             })
+            toast.success("Product added to basket", {
+                position: "bottom-right"
+            }); 
+        } else{
+            toast.error("Please login to add item to the cart!!!",{
+                position: "bottom-right"
+            });
+        }
         }
 
     return (

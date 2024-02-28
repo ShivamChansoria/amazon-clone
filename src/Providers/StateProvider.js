@@ -6,7 +6,7 @@ export const StateContext = createContext();
 //Wrapping the App and provider with Data Layer.
 
 export const StateProvider = ({reducer, initialState, children}) => (
-     
+     //Here StateContext initialised by using "CreateContext()" which makes React context that works as global store.
     <StateContext.Provider value= {useReducer(reducer, initialState)} >
         {children}
     </StateContext.Provider>
